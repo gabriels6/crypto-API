@@ -4,6 +4,7 @@ const { getCryptoAssets } = require('../Controllers/crypto-asset-controller');
 const { login, logout } = require('../Controllers/auth-controller');
 const { verifyJWT } = require('../Utils/JWT/Verify');
 const { getCryptoBalances, getTotalBalance} = require('../Controllers/crypto-account-controller');
+const { getCryptoEarnings } = require('../Controllers/crypto-earning-controller');
 
 const routes = Router();
 
@@ -16,5 +17,7 @@ routes.get('/daily/assets',verifyJWT,getCryptoAssets);
 
 routes.get('/account',verifyJWT,getCryptoBalances);
 routes.get('/account/total',verifyJWT,getTotalBalance);
+
+routes.get('/earnings',verifyJWT,getCryptoEarnings);
 
 module.exports = routes;
